@@ -56,7 +56,11 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.raise_delivery_errors = false
+   host = 'enigmatic-hollows-97688.herokuapp.com'
+  config.action_mailer.default_url_options = { host: host}
+ config.action_mailer.delivery_method = :smtp
 # SMTP settings for mailgun
 ActionMailer::Base.smtp_settings = {
   :port           => 587,
